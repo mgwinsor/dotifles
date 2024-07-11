@@ -1,0 +1,99 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+#           ﯈  󰄊  󰻀  󱟰  󰃫  󰐝  󰠬  󱍢  󰌢
+format = """
+[░▒▓](#a3aed2)\
+[ 󰻀 ](bg:#a3aed2 fg:#090c0c)\
+[](bg:#4e7aad fg:#a3aed2)\
+$sudo\
+$username\
+$hostname\
+$localip\
+[](bg:#769ff0 fg:#4e7aad)\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$docker_context\
+$golang\
+$python\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+$battery\
+\n$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[sudo]
+disabled = false
+format = "[$symbol]($style)"
+symbol = " 🧙 "
+style = "bg:#4e7aad"
+
+[username]
+disabled = false
+show_always = false
+style_user = "fg:#e3e5e5 bg:#4e7aad"
+style_root = "fg:#ff0000 bold bg:#4e7aad"
+format = '[$user]($style)'
+
+[hostname]
+disabled = false
+ssh_only = true
+style = "fg:#e3e5e5 bg:#4e7aad"
+format = "[@$hostname]($style)"
+
+[localip]
+disabled = false
+ssh_only = true
+style = "fg:#e3e5e5 bg:#4e7aad"
+format = "[ $localipv4 ]($style)"
+
+[directory]
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+
+[git_status]
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+
+[docker_context]
+symbol = "  "
+style = "bg:#212736"
+format = "[ $symbol $context ]($style) $path"
+
+[golang]
+symbol = "ﳑ "
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[python]
+symbol = " "
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"                                      # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[[battery.display]]
+threshold = 20
+style = 'bold red'
+
+[character]
+success_symbol = '[>](bold green)'
+error_symbol = '[X](bold red)'
+vimcmd_symbol = '[<](bold blue)'
