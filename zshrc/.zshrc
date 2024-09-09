@@ -31,6 +31,10 @@ export DOCKER_HOST="unix:///$HOME/.lima/docker/sock/docker.sock"
 # Use updated C++ compiler
 export CC="gcc-14"
 
+# Add $GOPATH binaries to $PATH
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
