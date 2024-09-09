@@ -5,6 +5,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Set config based on Linux/MacOS
+# # TODO set env vars, etc. accordingly
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*)     machine=Linux;;
+  Darwin*)    machine=Mac;;
+  *)          machine="UNKNOWN:${unameOut}"
+esac
+
+if [[ $machine == "UNKNOWN"* ]]; then
+  echo "Unknown system... exiting."
+  exit 1
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
