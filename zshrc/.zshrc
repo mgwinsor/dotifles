@@ -35,6 +35,9 @@ export CC="gcc-14"
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
+# Add cargo binaries to $PATH
+export PATH=$HOME/.cargo/bin:$PATH
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
