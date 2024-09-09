@@ -6,8 +6,8 @@ My dotfiles -- managed by GNU Stow.
 
 ## Installation
 
-NeoVim configuration is added as a submodule. To clone this repo with the
-submodule, use the following command:
+My NeoVim config and the tmux TPM are added as submodules. To clone this repo
+with submodules, use the following command:
 
 ```bash
 git clone --recurse-submodules git@github.com:mgwinsor/dotifles.git
@@ -21,3 +21,5 @@ symlink for NeoVim:
 ```bash
 stow nvim
 ```
+
+For Tmux, run `prefix` + `I` to install packages once TPM is installed.
