@@ -107,7 +107,6 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   fzf
   git
-  pyenv
   python
   macos
   zsh-autosuggestions
