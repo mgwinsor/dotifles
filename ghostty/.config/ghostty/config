@@ -1,0 +1,10 @@
+theme = catppuccin-mocha
+
+shell-integration-features = no-cursor
+cursor-style = underline
+cursor-style-blink = false
+
+window-height = 54
+window-width = 201
+
+font-feature = -calt
