@@ -8,5 +8,5 @@ window-height = 54
 window-width = 201
 window-padding-y = 20, 0
 
-font-size = 23
+font-size = 16
 font-feature = -calt
