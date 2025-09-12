@@ -1,0 +1,18 @@
+# Check if the GNU version of ls is installed (macOS check)
+if command -v gls >/dev/null 2>&1; then
+  alias ls='gls --color=auto'
+else
+  # Fall back to the default ls with color enabled
+  if ls --color=auto > /dev/null 2>&1; then
+    alias ls='ls --color=auto' # Linux alias
+  else
+    alias ls='ls -G' # macOS alias
+  fi
+fi
+
+alias l='ls -CF'      # List files, with folder/file type indicators
+alias la='ls -A'      # List all files, including hidden (but not . and ..)
+alias ll='ls -alF'    # List all files, long format, with type indicators
+alias lsa='ls -la'    # List all files, long format
+
+alias v='nvim'

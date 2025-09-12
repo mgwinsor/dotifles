@@ -2,6 +2,10 @@ source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 
 antidote load
 
+# source custom files
+[ -f "${ZDOTDIR:-$HOME}/.zsh_aliases" ] && source "${ZDOTDIR:-$HOME}/.zsh_aliases"
+
+# set emacs mode
 bindkey -e
 
 # fzf

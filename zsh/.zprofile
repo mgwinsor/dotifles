@@ -28,4 +28,4 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 # --- Local Overrides & Secrets ---
-[ -f "${ZDOTDIR:-~}/.zsh_secrets" ] && source "${ZDOTDIR:-~}/.zsh_secrets"
+[ -f "${ZDOTDIR:-$HOME}/.zsh_secrets" ] && source "${ZDOTDIR:-$HOME}/.zsh_secrets"
