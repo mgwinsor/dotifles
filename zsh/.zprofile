@@ -1,7 +1,3 @@
-# --- System & Package Managers ---
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-
 # --- General Settings ---
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
