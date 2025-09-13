@@ -1,15 +1,3 @@
-[submodule "tmux/.tmux/plugins/tpm"]
-	path = tmux/.tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = git@github.com:mgwinsor/neovim.git
-[submodule "zshrc/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = zshrc/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "zshrc/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-	path = zshrc/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zshrc/.oh-my-zsh/custom/themes/powerlevel10k"]
-	path = zshrc/.oh-my-zsh/custom/themes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
