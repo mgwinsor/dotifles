@@ -14,6 +14,9 @@ bindkey -e
 # Starship
 eval "$(starship init zsh)"
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Atuin
 eval "$(atuin init zsh)"
 
