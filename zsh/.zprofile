@@ -16,9 +16,6 @@ if command -v go >/dev/null 2>&1; then
   export PATH="$GOPATH/bin:$PATH"
 fi
 
-# SDKMAN
-export SDKMAN_DIR="$HOME/.sdkman"
-
 # User-local binaries
 export PATH="$HOME/.local/bin:$PATH"
 
