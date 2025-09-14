@@ -18,7 +18,11 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 # Atuin
+[ -f "${ZDOTDIR:-$HOME}/.atuin/bin/env" ] && source "${ZDOTDIR:-$HOME}/.atuin/bin/env"
 eval "$(atuin init zsh)"
+
+# Direnv
+eval "$(direnv hook zsh)"
 
 # JDKMAN
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
