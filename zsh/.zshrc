@@ -17,6 +17,18 @@ autoload -U compinit && compinit
 # Set emacs mode
 bindkey -e
 
+# Set history
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+setopt EXTENDED_HISTORY      # Save timestamp and duration for each command.
+setopt INC_APPEND_HISTORY    # Append commands to the history file immediately, not just on exit.
+setopt SHARE_HISTORY         # Share history between all running shells instantly.
+setopt HIST_IGNORE_DUPS      # Don't save a command if it's the same as the previous one.
+setopt HIST_IGNORE_ALL_DUPS  # If a command is re-run, remove the older entry.
+setopt HIST_FIND_NO_DUPS     # When cycling history, don't show duplicates.
+setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from history entries.
+
 # Carapace
 if command -v carapace &> /dev/null; then
 	export CARAPACE_BRIDGES='zsh,bash'
