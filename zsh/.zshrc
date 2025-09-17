@@ -13,6 +13,7 @@ autoload -U compinit && compinit
 
 # source custom files
 [ -f "${ZDOTDIR:-$HOME}/.zsh_aliases" ] && source "${ZDOTDIR:-$HOME}/.zsh_aliases"
+[ -f "${ZDOTDIR:-$HOME}/.zsh_aichat" ] && source "${ZDOTDIR:-$HOME}/.zsh_aichat"
 
 # Set emacs mode
 bindkey -e
