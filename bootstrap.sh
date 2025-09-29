@@ -32,8 +32,8 @@ fi
 
 if [ ! -d "$CATPPUCCIN_DIR" ]; then
 	echo "📦 Installing Tmux Catppuccin Theme..."
-	mkdir -p "$(dirname "$TPM_DIR")"
-	git clone https://github.com/catppuccin/tmux.git "$CATPPUCCIN_DIR"
+	mkdir -p "$HOME"/.config/tmux/plugins/catppuccin
+	git clone -b v2.1.3 https://github.com/catppuccin/tmux.git "$CATPPUCCIN_DIR"
 else
 	echo "✅ Tmux Catppuccin Theme is already installed."
 fi
