@@ -8,12 +8,9 @@ if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
 fi
 source ${zsh_plugins}.zsh
 
-# Load the zsh completion function
-autoload -U compinit && compinit
-
-# source custom files
-[ -f "${ZDOTDIR:-$HOME}/.zsh_aliases" ] && source "${ZDOTDIR:-$HOME}/.zsh_aliases"
-[ -f "${ZDOTDIR:-$HOME}/.zsh_aichat" ] && source "${ZDOTDIR:-$HOME}/.zsh_aichat"
+# Source custom files
+[[ -f "${ZDOTDIR:-$HOME}/.zsh_aliases" ]] && source "${ZDOTDIR:-$HOME}/.zsh_aliases"
+[[ -f "${ZDOTDIR:-$HOME}/.zsh_aichat" ]] && source "${ZDOTDIR:-$HOME}/.zsh_aichat"
 
 # Set emacs mode
 bindkey -e
@@ -38,21 +35,25 @@ if command -v carapace &> /dev/null; then
 fi
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Starship
-source <(starship init zsh)
+command -v starship &> /dev/null && source <(starship init zsh)
 
 # Zoxide
-source <(zoxide init zsh)
+command -v zoxide &> /dev/null && source <(zoxide init zsh)
 
 # Atuin
-[ -f "${ZDOTDIR:-$HOME}/.atuin/bin/env" ] && source "${ZDOTDIR:-$HOME}/.atuin/bin/env"
-source <(atuin init zsh)
+if command -v atuin &> /dev/null; then
+  [[ -f "${ZDOTDIR:-$HOME}/.atuin/bin/env" ]] && source "${ZDOTDIR:-$HOME}/.atuin/bin/env"
+  source <(atuin init zsh)
+fi
 
 # Direnv
-source <(direnv hook zsh)
+command -v direnv &> /dev/null && source <(direnv hook zsh)
 
-# JDKMAN
+# SDKMAN
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+# Load completions (should be last)
+autoload -Uz compinit && compinit
