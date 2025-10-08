@@ -15,6 +15,9 @@ source ${zsh_plugins}.zsh
 # Set emacs mode
 bindkey -e
 
+# Alternate keybind to clear screen (due to tmux)
+bindkey '^g' clear-screen
+
 # Set history
 export HISTSIZE=10000
 export SAVEHIST=10000
