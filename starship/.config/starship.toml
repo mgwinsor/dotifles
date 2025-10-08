@@ -58,6 +58,10 @@ min_time = 1000
 symbol = ""
 style = "bright-black"
 format = "[$symbol ($version) ($virtualenv)]($style) "
+python_binary = ["./.venv/bin/python", "python", "python3"]
+detect_extensions = ["py"]
+detect_files = [".python-version", "Pipfile", "pyproject.toml", "requirements.txt", "uv.lock", "setup.py", "tox.ini"]
+detect_folders = [".venv"]
 
 [golang]
 symbol = ""
