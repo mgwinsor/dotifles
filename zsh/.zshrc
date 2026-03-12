@@ -30,33 +30,65 @@ setopt HIST_IGNORE_ALL_DUPS  # If a command is re-run, remove the older entry.
 setopt HIST_FIND_NO_DUPS     # When cycling history, don't show duplicates.
 setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from history entries.
 
+# Cache helper
+_cache_source() {
+	local cache="$HOME/.zsh_cache/${1}.zsh"
+	mkdir -p "$HOME/.zsh_cache"
+	if [[ ! -f "$cache" || -z "$cache"(#qN.mh+24) ]] || \
+		{ local cmd=$(command -v $1) && [[ -n "$cmd" && "$cmd" -nt "$cache" ]]; }; then
+		"$@" > "$cache" 2>/dev/null
+	fi
+	source "$cache"
+}
+
 # Carapace
 if command -v carapace &> /dev/null; then
 	export CARAPACE_BRIDGES='zsh,bash'
 	zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
-	source <(carapace _carapace)
+	_cache_source carapace _carapace
 fi
 
 # fzf
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Starship
-command -v starship &> /dev/null && source <(starship init zsh)
+command -v starship &> /dev/null && _cache_source starship init zsh
 
 # Zoxide
-command -v zoxide &> /dev/null && source <(zoxide init zsh)
+command -v zoxide &> /dev/null && _cache_source zoxide init zsh
 
 # Atuin
 if command -v atuin &> /dev/null; then
   [[ -f "${ZDOTDIR:-$HOME}/.atuin/bin/env" ]] && source "${ZDOTDIR:-$HOME}/.atuin/bin/env"
-  source <(atuin init zsh)
+  _cache_source atuin init zsh
 fi
 
 # Direnv
-command -v direnv &> /dev/null && source <(direnv hook zsh)
+command -v direnv &> /dev/null && _cache_source direnv hook zsh
 
-# SDKMAN
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+# SDKMAN (lazy load)
+sdk() {
+	unset -f sdk
+	[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+	sdk "$@"
+}
+
+# nvm (lazy load)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm() {
+	unset -f nvm node npm npx
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	nvm "$@"
+}
+node() { nvm "$@"; }
+npm() { nvm "$@"; }
+npx() { nvm "$@"; }
 
 # Load completions (should be last)
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+if [[ -n "$HOME/.zcompdump"(#qN.mh+24) ]]; then
+	compinit
+else
+	compinit -C
+fi
