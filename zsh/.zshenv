@@ -18,7 +18,7 @@ export EDITOR='nvim'
 path_dirs=(
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
-  "$GOPATH/sbin"
+  "$GOPATH/bin"
   "$HOME/.cargo/bin"
   "$HOME/.local/bin"
 )
