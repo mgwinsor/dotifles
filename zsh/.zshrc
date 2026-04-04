@@ -41,13 +41,6 @@ _cache_source() {
 	source "$cache"
 }
 
-# Carapace
-if command -v carapace &> /dev/null; then
-	export CARAPACE_BRIDGES='zsh,bash'
-	zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
-	_cache_source carapace _carapace
-fi
-
 # fzf
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
@@ -92,3 +85,11 @@ if [[ -n "$HOME/.zcompdump"(#qN.mh+24) ]]; then
 else
 	compinit -C
 fi
+
+# Carapace
+if command -v carapace &> /dev/null; then
+	export CARAPACE_BRIDGES='zsh,bash'
+	zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+	_cache_source carapace _carapace
+fi
+
