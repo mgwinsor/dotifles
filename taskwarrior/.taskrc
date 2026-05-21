@@ -1,0 +1,55 @@
+# [Created by task 3.0.1 4/22/2024 22:59:24]
+# Taskwarrior program configuration file.
+# For more documentation, see https://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# You can also refence environment variables:
+#   variable=$HOME/task
+#   variable=$VALUE
+
+# Use the command 'task show' to see all defaults and overrides
+
+include ~/.taskrc_secrets
+
+# Files
+data.location=/Users/michaelwinsor/.task
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and uncomment below
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+# Urgency tuning
+urgency.annotations.coefficient=0.0          # annotations are context, not priority
+urgency.tags.coefficient=0.0                 # tags are context, not priority
+urgency.user.tag.someday.coefficient = -10.0 # tracking long-term tasks, not urgent
+urgency.user.tag.waiting.coefficient = -5.0  # waiting on something else, not urgent
+
+news.version=3.4.2
+
+# Sync
+sync.aws.region=ap-southeast-1
+sync.aws.bucket=tasks-d8b965e5
+sync.aws.profile=taskwarrior-creds
