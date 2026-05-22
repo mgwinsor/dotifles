@@ -21,6 +21,7 @@ path_dirs=(
   "$GOPATH/bin"
   "$HOME/.cargo/bin"
   "$HOME/.local/bin"
+  "$HOME/.lmstudio/bin"
 )
 
 export PATH="${(j/:/)path_dirs}:$PATH"

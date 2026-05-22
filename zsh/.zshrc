@@ -92,4 +92,3 @@ if command -v carapace &> /dev/null; then
 	zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
 	_cache_source carapace _carapace
 fi
-
